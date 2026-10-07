@@ -40,7 +40,7 @@ class AnimalDataRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'species' => 'required|string|in:león,elefante,pez payaso,gato,perro,conejo,caballo,oso,pájaro,tortuga',
+            'species' => 'required|string|in:leon,elefante,pez payaso,gato,perro,conejo,caballo,oso,pajaro,tortuga',
             'age' => 'required|integer|min:3|max:30',
         ];
     }

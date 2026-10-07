@@ -8,25 +8,37 @@
         @method('PUT')
 
         <label for="name" class="block text-sm font-medium mb-1">Nombre</label>
-        <input type="text" id="name" name="name" value="{{ $animal['name'] }}"
-                value="{{ old('name', $animal['name']) }}"
-               class="w-full border-gray-300 rounded-md shadow-sm mb-4 p-2 border text-black">
+        <input type="text" id="name" name="name" value="{{ old('name', $animal['name']) }}"
+               @class([
+                   'w-full rounded-md shadow-sm mb-4 p-2 border-2 text-black',
+                   'border-red-500' => $errors->has('name'),
+                   'border-green-500' => $errors->any() && ! $errors->has('name'),
+                   'border-gray-300' => ! $errors->any(),
+               ])>
         @error('name')
         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
 
         <label for="species" class="block text-sm font-medium mb-1">Especie</label>
-        <input type="text" id="species" name="species" value="{{ $animal['species'] }}"
-                value="{{ old('species') }}"
-               class="w-full border-gray-300 rounded-md shadow-sm mb-4 p-2 border text-black">
+        <input type="text" id="species" name="species" value="{{ old('species', $animal['species']) }}"
+               @class([
+                   'w-full rounded-md shadow-sm mb-4 p-2 border-2 text-black',
+                   'border-red-500' => $errors->has('species'),
+                   'border-green-500' => $errors->any() && ! $errors->has('species'),
+                   'border-gray-300' => ! $errors->any(),
+               ])>
         @error('species')
         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
 
         <label for="age" class="block text-sm font-medium mb-1">Edad</label>
-        <input type="number" id="age" name="age" value="{{ $animal['age'] }}"
-                value="{{ old('age', $animal['age']) }}"
-               class="w-full border-gray-300 rounded-md shadow-sm mb-4 p-2 border text-black">
+        <input type="number" id="age" name="age" value="{{ old('age', $animal['age']) }}"
+               @class([
+                   'w-full rounded-md shadow-sm mb-4 p-2 border-2 text-black',
+                   'border-red-500' => $errors->has('age'),
+                   'border-green-500' => $errors->any() && ! $errors->has('age'),
+                   'border-gray-300' => ! $errors->any(),
+               ])>
         @error('age')
         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
